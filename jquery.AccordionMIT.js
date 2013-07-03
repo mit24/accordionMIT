@@ -1,23 +1,23 @@
 (function($){
   jQuery.fn.AccordionMIT = function(options){		
 		options = $.extend({
-			parentBlockRowsDefault: 2,				//Количество строк, которые видно при загрузке плагина
-			parentPadding: 20,								//Отступ кнопки от родителя
-			elementColsInRow: 3,							//Количество элементов в строке
-			elementChild: ".child-element",		//Идентифекатор дочернего элемента
-			toggle: true,									    //Показывать кнопку после разворота
-  		toggleImg: "/down.png",           //Изображение кнопки
-			toggleWidth: "100%",							//Ширина кнопки
-			toggleHeight: 60,									//Высота кнопки
-			animateSpeed: 1000,								//Скорость анимации
+			parentBlockRowsDefault: 2,	//The number of rows that are visible when the plugin is loaded
+			parentPadding: 20,		//Indent button from parent
+			elementColsInRow: 3,		//The number of elements in a row
+			elementChild: ".child-element",	//Identifekator child element
+			toggle: true, 			//Show button after turning
+			toggleImg: "/ down.png", 	//Button image
+			toggleWidth: "100%", 		//width of the button
+			toggleHeight: 60, 		//height of the button
+			animateSpeed: 1000 		//animation speed
 		}, options);
 		
-		//Проверка на целочисленность
+		//Check for integrality
 		var isInteger = function(val) {
 			return (val ^ 0) === val;
 		}
 		
-		//Контроллер размеров
+		//controller size
 		var controller = function(val) {
 			var totalCol = $(val).find(options.elementChild).length,
 				realRow = parseInt(totalCol/options.elementColsInRow);
@@ -27,22 +27,23 @@
 			else return false;
 		}
 		
-		//Сборка
+		//Assembly
 		var make = function(){
 				
-			var rowHeight = parseInt($(this).children(options.elementChild).css("height")) + 			//Складываем все величины дочернего блока
-							parseInt($(this).children(options.elementChild).css("margin-top")) + 		//для расчета реальной высоты блока
-							parseInt($(this).children(options.elementChild).css("margin-bottom"))+		//По необходимости можно добавить padding
-							parseInt($(this).children(options.elementChild).css("border-top-width"))+
-							parseInt($(this).children(options.elementChild).css("border-bottom-width")),
-				sizeBlockDefault = rowHeight*options.parentBlockRowsDefault,							//Дефолтный размер блока
-				keyBlock = (Math.random() * (200 - 1) + 1).toFixed(0);									//Уникальный ключ блока
-				//totalCount = $(this).(options.elementChild).length;
+			var 	rowHeight = parseInt($(this).children(options.elementChild).css("height")) +			
+					parseInt($(this).children(options.elementChild).css("margin-top")) +
+					parseInt($(this).children(options.elementChild).css("margin-bottom"))+
+					parseInt($(this).children(options.elementChild).css("border-top-width"))+
+					parseInt($(this).children(options.elementChild).css("border-bottom-width"))+
+					parseInt($(this).children(options.elementChild).css("padding-top"))+
+					parseInt($(this).children(options.elementChild).css("padding-bottom")),
+				sizeBlockDefault = rowHeight*options.parentBlockRowsDefault,
+				keyBlock = (Math.random() * (200 - 1) + 1).toFixed(0);
 			
-			//Формирование родительского блока
-			$(this).addClass("uBankAccordion"+keyBlock)		//Уникальный ключ блока
-			.addClass('deactiveToggleU') 					//Класс наличия активности блока
-			.attr("data-height-default",sizeBlockDefault);	//Сохранение дефолтной высоты в атрибуте
+			//Formation of the parent unit
+			$(this).addClass("uBankAccordion"+keyBlock)		//Uniq key of block
+			.addClass('deactiveToggleU') 				//Class presence of an active unit
+			.attr("data-height-default",sizeBlockDefault);		//Saving the height of default attribute
 			
 			var sizeControl = controller(".uBankAccordion"+keyBlock);
 			if(sizeControl==false) {
@@ -51,14 +52,10 @@
 			else {
 				//options.toggle=false;
 			}
-			/*
-			.css("height",sizeBlockDefault)					//Установка дефолтного размера
-			*/
 			
-			
-			//Формирование кнопки переключателя
-			$(this).after($('<div />')									//Создание кнопки переключателя
-			.addClass('toggle')											//Присвоение класса
+			//Making button switch
+			$(this).after($('<div />')
+			.addClass('toggle')
 			.css({
 				"display"	: "block",
 				"position"	: "relative",
@@ -69,10 +66,10 @@
 				"background-position": "center",
 				"background-repeat": "no-repeat",
 				"cursor"	:"pointer"
-			})															//Дизайн кнопки переключателя
-			.attr("rel",".uBankAccordion"+keyBlock)						//Установка ключа родительского блока
+			})
+			.attr("rel",".uBankAccordion"+keyBlock)
 			.click(function() {
-				var relToggle = $(this).attr("rel"),
+				var 	relToggle = $(this).attr("rel"),
 					countDivs = $(relToggle).find(options.elementChild).length,
 					rowsCount = countDivs/options.elementColsInRow;
 				
