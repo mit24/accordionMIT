@@ -1,23 +1,15 @@
 accordionMIT
-============
+==========
 
-How to use the accordionMIT.
+RULES AND LICENSE
 
-You must initialize a plugin in head of HTML document, where need used a plugin.
+Develope by PHP-developer Pavlov Alex from Workshop of IT (site http://mit24.ru).
+The LLC Web have all rights on this plugin. The plugin is available for free use on an "as is".
+The developer can not be held otvetstvnnosti for errors or malicious code.
 
-<head>
-<script src="directory/jquery.js"></script>
-<script src="directory/jquery.AccordionMIT.js"></sctipt>
-</head>
+==========
 
-Then you can use plugin on some element in DOM-structure:
-<script>
-$(".list-elements").uBankAccordion({
-  elementColsInRow: 4, 
-  parentBlockRowsDefault:1, 
-  elementChild: ".child-element", 
-  parentPadding: 0
-});
-</script>
+TECH INFO
 
-That's all.
+Plugin work on framework jQuery 1.8+. 
+Support browsers IE6+, Safary2+, Opera11+, FF13+, Chrome 2+
