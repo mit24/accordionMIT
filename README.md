@@ -1,4 +1,4 @@
-accordionMIT
+jQuery plugin accordionMIT
 ==========
 
 RULES AND LICENSE
