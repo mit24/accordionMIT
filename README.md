@@ -27,6 +27,7 @@ $(".parent").AccordionMIT({
 
 
 HTML:
+<pre>
 <div class="parent">
   <div class="child"></div>
   <div class="child"></div>
@@ -38,6 +39,7 @@ HTML:
   <div class="child"></div>
   <div class="child"></div>
 </div>
+</pre>
 
 
 ==========
