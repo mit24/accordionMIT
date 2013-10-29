@@ -13,6 +13,7 @@ INSTRUCTION
 Any list or a set of identical blocks with the help of this plug-in you can convert accordion. Example:
 
 JS:
+<pre>
 $(".parent").AccordionMIT({
   parentBlockRowsDefault: 2,             //Count rows, shows when plugin is loaded
   parentPadding: 20,                     //Margin button from parent block
@@ -24,7 +25,7 @@ $(".parent").AccordionMIT({
   toggleHeight: 60,                      //Height button
   animateSpeed: 1000,                    //Animation speed
 });
-
+</pre>
 
 HTML:
 <pre>
