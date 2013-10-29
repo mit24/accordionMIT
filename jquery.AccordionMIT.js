@@ -41,13 +41,13 @@
 				keyBlock = (Math.random() * (200 - 1) + 1).toFixed(0);
 
 			//Make parent block
-			$(this).addClass("uBankAccordion"+keyBlock)
+			$(this).addClass("AccordionMIT"+keyBlock)
 			.addClass('deactiveToggleU') 
 			.attr("data-height-default",sizeBlockDefault);
 
-			var sizeControl = controller(".uBankAccordion"+keyBlock);
+			var sizeControl = controller(".AccordionMIT"+keyBlock);
 			if(sizeControl==false) {
-				$(".uBankAccordion"+keyBlock).css("height",sizeBlockDefault);
+				$(".AccordionMIT"+keyBlock).css("height",sizeBlockDefault);
 				$(this).after($('<div />')
 						.addClass('toggle')
 						.css({
@@ -61,7 +61,7 @@
 							"background-repeat": "no-repeat",
 							"cursor"	:"pointer"
 						})
-						.attr("rel",".uBankAccordion"+keyBlock)
+						.attr("rel",".AccordionMIT"+keyBlock)
 						.click(function() {
 							var toggleSpan = $(this),
 								relToggle = $(this).attr("rel"),
